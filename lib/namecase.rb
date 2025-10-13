@@ -35,8 +35,10 @@ module NameCase
 
     if options[:irish]
       if localstring =~ /\bMac[A-Za-z]{2,}[^aciozj]\b/ or localstring =~ /\bMc/
-        match = localstring.match(/\b(Ma?c)([A-Za-z]+)/)
-        localstring.gsub!(/\bMa?c[A-Za-z]+/) { match[1] + match[2].capitalize }
+        localstring.gsub!(/\b(Ma?c)([A-Za-z]+)/) do |match|
+          prefix, remainder = match.match(/\b(Ma?c)([A-Za-z]+)/).captures
+          "#{prefix}#{remainder.capitalize}"
+        end
 
         # Now fix "Mac" exceptions
         localstring.gsub!(/\bMacEdo/, 'Macedo')

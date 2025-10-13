@@ -13,5 +13,5 @@ Hoe.spec('namecase') do |p|
   }
 
   license   'GPL'
-  extra_dev_deps << ['minitest', '~> 4.0']
+  extra_dev_deps << ['minitest', '~> 5.0']
 end
