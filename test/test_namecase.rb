@@ -60,4 +60,9 @@ class TestNameCase < Minitest::Test
       assert_equal(name, nc_name)
     end
   end
+
+  def test_mc_prefixes_do_not_duplicate
+    assert_equal("McFoo McBar", NameCase("mcfoo mcbar"))
+    assert_equal("McFoo McBar", NameCase("MCFOO MCBAR"))
+  end
 end
