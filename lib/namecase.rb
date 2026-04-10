@@ -30,7 +30,7 @@ module NameCase
     end
 
     localstring = str.downcase
-    localstring.gsub!(/\b\w/) { |first| first.upcase }
+    localstring.gsub!(/\b\p{Word}/) { |first| first.upcase }
     localstring.gsub!(/\'\w\b/) { |c| c.downcase } # Lowercase 's
 
     if options[:irish]
